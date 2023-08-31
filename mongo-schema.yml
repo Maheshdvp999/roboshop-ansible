@@ -20,6 +20,6 @@
     state: installed
 
 - name: Load schema
-  ansible.builtin.shell: mongo --host mongodb.devops999.store </app/schema/${component}.js
+  ansible.builtin.shell: mongo --host mongodb-dev.devops999.store </app/schema/${component}.js
 
 
