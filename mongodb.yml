@@ -5,7 +5,7 @@
     - name: copy Mongodb yum repo file
       ansible.builtin.copy:
         src: mongo.repo
-        dest: /etc/nginx/default.d/roboshop.conf
+        dest: /etc/mongdb/default.d/roboshop.conf
 
     - name: Install Mongodb
       ansible.builtin.yum:
