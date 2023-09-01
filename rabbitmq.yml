@@ -17,9 +17,10 @@
       ansible.builtin.systemd:
         name: rabbitmq-server
         state: restarted
-        enable: yes
+        enabled: yes
 
-    - name: Add Application user
+
+    - name: Add Application User
       community.rabbitmq.rabbitmq_user:
         user: roboshop
         password: roboshop123
