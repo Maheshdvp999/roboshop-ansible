@@ -1,0 +1,54 @@
+- name: Rabbit Mq setUp
+  hosts: all
+  become: true
+  tasks:
+    - name: Install erland repos
+      ansible.builtin.shell: curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash
+    - name: Install RabbirMQ repos
+      ansible.built.shell: https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash
+    - name: Install rabbitMq Server
+      ansible.builtin.yum:
+        name: rabbitmq-server
+        state: installed
+
+    - name: Start rabbitMq Service
+      ansible.built.systemd:
+        name: reabbitmq-server
+        state: restarted
+        enable: yes
+
+    - name: Add Application USer
+      community.rabbitmq.rabbitmq_user:
+        user: roboshop
+        password: roboshop123
+        vhost: /
+        configure_priv: .*
+        read_priv: .*
+        write_priv: .*
+        state: present
+
+
+
+
+
+
+
+
+
+
+
+#rabbitmq_app_password =$1
+#if [ -z "${rabbitmq_app_password} " ]; then
+#echo Input Rabbitmq AppUser Password Missing
+#exit 1
+#fi
+#
+#
+#
+#curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash
+#curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash
+#yum install rabbitmq-server -y
+#systemctl enable rabbitmq-server
+#systemctl start rabbitmq-server
+#rabbitmqctl add_user roboshop ${rabbitmq_app_password}
+#rabb
