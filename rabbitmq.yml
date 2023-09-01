@@ -4,7 +4,7 @@
   tasks:
     - name: Install erland repos
       ansible.builtin.shell: curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash
-    - name: Install RabbirMQ repos
+    - name: Install RabbitMQ repos
       ansible.built.shell: https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash
     - name: Install rabbitMq Server
       ansible.builtin.yum:
