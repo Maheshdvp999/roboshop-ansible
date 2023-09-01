@@ -4,15 +4,18 @@
   tasks:
     - name: Install erland repos
       ansible.builtin.shell: curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash
+
     - name: Install rabbitmq repos
       ansible.built.shell: curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash
+
+
     - name: Install rabbitmq Server
       ansible.builtin.yum:
         name: rabbitmq-server
         state: installed
 
     - name: Start rabbitmq Service
-      ansible.built.systemd:
+      ansible.builtin.systemd:
         name: rabbitmq-server
         state: restarted
         enable: yes
